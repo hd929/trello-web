@@ -1,13 +1,41 @@
 import Button from '@mui/material/Button'
 import AccessAlarmIcon from '@mui/icons-material/AccessAlarm'
 import ThreeDRotation from '@mui/icons-material/ThreeDRotation'
-import { pink } from '@mui/material/colors'
 import HomeIcon from '@mui/icons-material/Home'
+import { pink } from '@mui/material/colors'
+import Typography from '@mui/material/Typography'
+import {
+  experimental_extendTheme as extendTheme,
+  Experimental_CssVarsProvider as CssVarsProvider,
+  useColorScheme,
+} from '@mui/material/styles'
+import useMediaQuery from '@mui/material/useMediaQuery'
+
+function ModeToggle() {
+  const { mode, setMode } = useColorScheme()
+  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)')
+  console.log(prefersDarkMode)
+  return (
+    <Button
+      onClick={() => {
+        setMode(mode === 'light' ? 'dark' : 'light')
+      }}
+    >
+      {mode === 'light' ? 'Turn Dark' : 'Turn Light'}
+    </Button>
+  )
+}
 
 function App() {
   return (
     <>
-      <div>Hello, world!</div>
+      <ModeToggle />
+      <div>Next.JS</div>
+
+      <Typography variant='body2' color='text.secondary'>
+        Test
+      </Typography>
+
       <Button variant='text'>Text</Button>
       <Button variant='contained'>Contained</Button>
       <Button variant='outlined'>Outlined</Button>
