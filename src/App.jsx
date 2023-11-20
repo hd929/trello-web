@@ -2,14 +2,19 @@ import Button from '@mui/material/Button'
 import AccessAlarmIcon from '@mui/icons-material/AccessAlarm'
 import ThreeDRotation from '@mui/icons-material/ThreeDRotation'
 import HomeIcon from '@mui/icons-material/Home'
-import { pink } from '@mui/material/colors'
+import LightModeIcon from '@mui/icons-material/LightMode'
+import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined'
+import SettingsBrightnessIcon from '@mui/icons-material/SettingsBrightness'
 import Typography from '@mui/material/Typography'
-import { useColorScheme } from '@mui/material/styles'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import FormControl from '@mui/material/FormControl'
 import InputLabel from '@mui/material/InputLabel'
 import Select from '@mui/material/Select'
 import MenuItem from '@mui/material/MenuItem'
+import Box from '@mui/material/Box'
+import { pink } from '@mui/material/colors'
+import { useColorScheme } from '@mui/material/styles'
+import { DarkModeOutlined, SettingsBrightness } from '@mui/icons-material'
 
 function ModeToggle() {
   const { mode, setMode } = useColorScheme()
@@ -37,11 +42,24 @@ function ModeSelect() {
       <Select
         labelId='label-select-dark-light-mode'
         value={mode}
-        label='mode'
+        label='Mode'
         onChange={handleChange}
       >
-        <MenuItem value='dark'>Dark</MenuItem>
-        <MenuItem value='light'>Light</MenuItem>
+        <MenuItem value='dark'>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+            <DarkModeOutlined fontSize='small' /> Dark
+          </Box>
+        </MenuItem>
+        <MenuItem value='light'>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+            <LightModeIcon fontSize='small' /> Light
+          </Box>
+        </MenuItem>
+        <MenuItem value='system'>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+            <SettingsBrightnessIcon fontSize='small' /> System
+          </Box>
+        </MenuItem>
       </Select>
     </FormControl>
   )
