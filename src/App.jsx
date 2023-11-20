@@ -4,12 +4,12 @@ import ThreeDRotation from '@mui/icons-material/ThreeDRotation'
 import HomeIcon from '@mui/icons-material/Home'
 import { pink } from '@mui/material/colors'
 import Typography from '@mui/material/Typography'
-import {
-  experimental_extendTheme as extendTheme,
-  Experimental_CssVarsProvider as CssVarsProvider,
-  useColorScheme,
-} from '@mui/material/styles'
+import { useColorScheme } from '@mui/material/styles'
 import useMediaQuery from '@mui/material/useMediaQuery'
+import FormControl from '@mui/material/FormControl'
+import InputLabel from '@mui/material/InputLabel'
+import Select from '@mui/material/Select'
+import MenuItem from '@mui/material/MenuItem'
 
 function ModeToggle() {
   const { mode, setMode } = useColorScheme()
@@ -26,14 +26,36 @@ function ModeToggle() {
   )
 }
 
+function ModeSelect() {
+  const { mode, setMode } = useColorScheme()
+  const handleChange = (e) => {
+    setMode(e.target.value)
+  }
+  return (
+    <FormControl sx={{ m: 1, minWidth: 120 }}>
+      <InputLabel id='label-select-dark-light-mode'>Mode</InputLabel>
+      <Select
+        labelId='label-select-dark-light-mode'
+        value={mode}
+        label='mode'
+        onChange={handleChange}
+      >
+        <MenuItem value='dark'>Dark</MenuItem>
+        <MenuItem value='light'>Light</MenuItem>
+      </Select>
+    </FormControl>
+  )
+}
+
 function App() {
   return (
     <>
-      <ModeToggle />
+      {/* <ModeToggle /> */}
+      <ModeSelect />
       <div>Next.JS</div>
 
       <Typography variant='body2' color='text.secondary'>
-        Test
+        Hello world!
       </Typography>
 
       <Button variant='text'>Text</Button>
