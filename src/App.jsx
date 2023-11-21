@@ -14,7 +14,6 @@ import MenuItem from '@mui/material/MenuItem'
 import Box from '@mui/material/Box'
 import { pink } from '@mui/material/colors'
 import { useColorScheme } from '@mui/material/styles'
-import { DarkModeOutlined, SettingsBrightness } from '@mui/icons-material'
 
 function ModeToggle() {
   const { mode, setMode } = useColorScheme()
@@ -47,7 +46,7 @@ function ModeSelect() {
       >
         <MenuItem value='dark'>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-            <DarkModeOutlined fontSize='small' /> Dark
+            <DarkModeOutlinedIcon fontSize='small' /> Dark
           </Box>
         </MenuItem>
         <MenuItem value='light'>
