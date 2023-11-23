@@ -15,21 +15,6 @@ import Box from '@mui/material/Box'
 import { pink } from '@mui/material/colors'
 import { useColorScheme } from '@mui/material/styles'
 
-function ModeToggle() {
-  const { mode, setMode } = useColorScheme()
-  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)')
-  console.log(prefersDarkMode)
-  return (
-    <Button
-      onClick={() => {
-        setMode(mode === 'light' ? 'dark' : 'light')
-      }}
-    >
-      {mode === 'light' ? 'Turn Dark' : 'Turn Light'}
-    </Button>
-  )
-}
-
 function ModeSelect() {
   const { mode, setMode } = useColorScheme()
   const handleChange = (e) => {
